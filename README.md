@@ -1,3 +1,6 @@
+#API Used Can only be Executed in localhost For Upgraded API Visit NewApi Website
+https://newsapi.org/
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
