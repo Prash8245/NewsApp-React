@@ -5,7 +5,7 @@ import img3 from './image3.jpg';
 
 export default function Main() {
   return (
-    <div className='container'>
+    <div className='container-fluid'>
         <div id="carouselExampleAutoplaying" className="carousel slide" data-bs-ride="carousel">
             <div className="carousel-inner">
                 <div className="carousel-item active h-25">

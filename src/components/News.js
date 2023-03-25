@@ -12,9 +12,11 @@ export default class News extends Component {
     }
 
     async componentDidMount(){
-        let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=fab1c3e760024daeb1ce89fffa61d676&pageSize=9&page=${this.state.page}`;
+        let url = "https://newsapi.org/v2/top-headlines?country=in&apiKey=fab1c3e760024daeb1ce89fffa61d676&pageSize=9&page=1";
         let data = await fetch(url);
         let parsedData = await data.json();
+        console.log("Page")
+        console.log(this.state.page)
 
         this.setState({
             articles : parsedData.articles,
@@ -24,30 +26,39 @@ export default class News extends Component {
 
     handelPrev = async () =>{
         if(this.state.page < 1) {
-
+            console.log("Page No Change");
+        console.log(this.state.page);
         }
 
         else{
         let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=fab1c3e760024daeb1ce89fffa61d676&pageSize=9&page=${this.state.page}`;
         let data = await fetch(url);
         let parsedData = await data.json();
+        console.log("Page")
+        console.log(this.state.page)
         this.setState({
-            page : this.state.page -1,
+            page : this.state.page<=1 ? console.log("End"):this.state.page-1,
             articles : parsedData.articles
         });
     }
     }
 
     handelNext = async () =>{
-        if(this.state.page + 1 > Math.ceil(this.state.total / 9)){
+        let end = this.state.page + 1 //>= Math.ceil(this.state.total / 9;
 
+        if(end > Math.ceil(this.state.total / 9)){
+            console.log(Math.ceil(this.state.total / 9))
+            console.log("Page No Change");
+        console.log(this.state.page);
         }
         else {
         let url = `https://newsapi.org/v2/top-headlines?country=in&apiKey=fab1c3e760024daeb1ce89fffa61d676&pageSize=9&page=${this.state.page}`;
         let data = await fetch(url);
         let parsedData = await data.json();
+        console.log("Page")
+        console.log(this.state.page)
         this.setState({
-            page : this.state.page +1,
+            page : end > Math.ceil(this.state.total / 9)? console.log("End"):this.state.page + 1 ,
             articles : parsedData.articles
         });
     }
@@ -68,7 +79,7 @@ export default class News extends Component {
                 </div>
             })}
         </div>
-        <div className='container d-flex justify-content-between'>
+        <div className='container d-flex justify-content-between p-5'>
         <button type="button" onClick={this.handelPrev} className="btn btn-dark">Previous</button>
         <button type="button" onClick={this.handelNext} className="btn btn-dark">Next</button>
         </div>
