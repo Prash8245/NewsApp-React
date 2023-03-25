@@ -1,5 +1,5 @@
-#API Used Can only be Executed in localhost For Upgraded API Visit NewApi Website
-https://newsapi.org/
+# API Used Can only be Executed in localhost For Upgraded API Visit NewApi Website <br>
+    https://newsapi.org/
 
 # Getting Started with Create React App
 
